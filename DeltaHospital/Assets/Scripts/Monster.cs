@@ -42,22 +42,18 @@ public class Monster : MonoBehaviour
 
     private bool approximatePosition(Vector3 a, Vector3 b)
     {
-        Debug.Log("Intru in functie");
         Vector3Int x = new Vector3Int((int)a.x, (int)a.y, (int)a.z);
         Vector3Int y = new Vector3Int((int)b.x, (int)b.y, (int)b.z);
         if (x == y)
         {
-            Debug.Log("AM AJUNS");
             return true;
         }
-        Debug.Log("N am ajuns sau e ceva problema");
         return false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private bool checkSight()
     {
-        inSight = (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit1, 20f) && hit1.transform.tag == "Player") ||
+        return (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit1, 20f) && hit1.transform.tag == "Player") ||
                   (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.2f, .0f, .0f)), out hit2, 20f) && hit2.transform.tag == "Player") ||
                   (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.2f, .0f, .0f)), out hit3, 20f) && hit3.transform.tag == "Player") ||
                   (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.4f, .0f, .0f)), out hit4, 20f) && hit4.transform.tag == "Player") ||
@@ -68,6 +64,12 @@ public class Monster : MonoBehaviour
                   (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.8f, .0f, .0f)), out hit9, 20f) && hit9.transform.tag == "Player") ||
                   (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(1f, .0f, .0f)), out hit10, 20f) && hit10.transform.tag == "Player") ||
                   (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(1f, .0f, .0f)), out hit11, 20f) && hit11.transform.tag == "Player");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        inSight = checkSight();
 
         if (inSight)
         {
@@ -97,7 +99,6 @@ public class Monster : MonoBehaviour
         else
         {
             //GetComponent<NavMeshAgent>().SetDestination(this.GetComponent<Transform>().position);
-            Debug.Log("NU VAD NIMIC AJUTOR!");
             moveAround();
 
 #region DEBUG ONLY

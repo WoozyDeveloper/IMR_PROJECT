@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Monster.cs" />
+    <Compile Include="Assets\Scripts\Torch.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
