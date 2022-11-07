@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Torch : MonoBehaviour
 {
+    private Monster monster;
     private GameObject currentObj;
     List<GameObject> objects = new List<GameObject>();
     [SerializeField] private Rigidbody torch;
@@ -20,6 +21,12 @@ public class Torch : MonoBehaviour
         if (currentObj.tag == "monster")
         {
             Debug.Log("FREEZE MONSTER");
+            monster = currentObj.GetComponent<Monster>();
+            monster.setFreezeStatus(true);
+        }
+        else
+        {
+            monster.setFreezeStatus(false);
         }
     }
 

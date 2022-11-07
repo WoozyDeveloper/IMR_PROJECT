@@ -7,9 +7,9 @@ public class Monster : MonoBehaviour
 {
     [SerializeField] private Vector3 gotoPosition;
     private Vector3 initialPosition, destinationPosition, firstMonsterPosition;
-    private GameObject monster;
     private bool inSight;//true if the monster can see the player, false otherwise
     [SerializeField] private GameObject player;
+    private bool freezeStatus;
 
     private RaycastHit hit1, hit2, hit3, hit4, hit5, hit6, hit7, hit8, hit9, hit10, hit11;
 
@@ -20,6 +20,17 @@ public class Monster : MonoBehaviour
         initialPosition = Vector3.zero;
         firstMonsterPosition = transform.position;
 
+        freezeStatus = false;
+    }
+
+    public void setFreezeStatus(bool status)
+    {
+        freezeStatus = status;
+    }
+
+    public bool getFreezeStatus()
+    {
+        return freezeStatus;
     }
 
     public bool getSight()
@@ -45,9 +56,7 @@ public class Monster : MonoBehaviour
         Vector3Int x = new Vector3Int((int)a.x, (int)a.y, (int)a.z);
         Vector3Int y = new Vector3Int((int)b.x, (int)b.y, (int)b.z);
         if (x == y)
-        {
             return true;
-        }
         return false;
     }
 
@@ -71,27 +80,30 @@ public class Monster : MonoBehaviour
     {
         inSight = checkSight();
 
+
+
+        GetComponent<NavMeshAgent>().isStopped = getFreezeStatus();
         if (inSight)
         {
             initialPosition = transform.position;//position that the monster has
             destinationPosition = player.transform.position;
 
-#region DEBUG ONLY
+            #region DEBUG ONLY
 #if UNITY_EDITOR
             //Debug.Log("L am vazut!!!" + extraInformation.transform.tag);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit1.distance, Color.green);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.2f, .0f, .0f)) * hit2.distance, Color.green);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.2f, .0f, .0f)) * hit3.distance, Color.green);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.4f, .0f, .0f)) * hit4.distance, Color.green);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.4f, .0f, .0f)) * hit5.distance, Color.green);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.6f, .0f, .0f)) * hit6.distance, Color.green);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.6f, .0f, .0f)) * hit7.distance, Color.green);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.8f, .0f, .0f)) * hit8.distance, Color.green);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.8f, .0f, .0f)) * hit9.distance, Color.green);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(1f, .0f, .0f)) * hit10.distance, Color.green);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(1f, .0f, .0f)) * hit11.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit1.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.2f, .0f, .0f)) * hit2.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.2f, .0f, .0f)) * hit3.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.4f, .0f, .0f)) * hit4.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.4f, .0f, .0f)) * hit5.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.6f, .0f, .0f)) * hit6.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.6f, .0f, .0f)) * hit7.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.8f, .0f, .0f)) * hit8.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.8f, .0f, .0f)) * hit9.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(1f, .0f, .0f)) * hit10.distance, Color.green);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(1f, .0f, .0f)) * hit11.distance, Color.green);
 #endif
-#endregion
+            #endregion
             //follow the player  
             GetComponent<NavMeshAgent>().SetDestination(player.transform.position);
             transform.LookAt(player.transform);
@@ -101,24 +113,24 @@ public class Monster : MonoBehaviour
             //GetComponent<NavMeshAgent>().SetDestination(this.GetComponent<Transform>().position);
             moveAround();
 
-#region DEBUG ONLY
+            #region DEBUG ONLY
 #if UNITY_EDITOR
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 20f, Color.red);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.2f, .0f, .0f)) * 20f, Color.red);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.2f, .0f, .0f)) * 20f, Color.red);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.4f, .0f, .0f)) * 20f, Color.red);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.4f, .0f, .0f)) * 20f, Color.red);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.6f, .0f, .0f)) * 20f, Color.red);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.6f, .0f, .0f)) * 20f, Color.red);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.8f, .0f, .0f)) * 20f, Color.red);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.8f, .0f, .0f)) * 20f, Color.red);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(1f, .0f, .0f)) * 20f, Color.red);
-    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(1f, .0f, .0f)) * 20f, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 20f, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.2f, .0f, .0f)) * 20f, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.2f, .0f, .0f)) * 20f, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.4f, .0f, .0f)) * 20f, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.4f, .0f, .0f)) * 20f, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.6f, .0f, .0f)) * 20f, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.6f, .0f, .0f)) * 20f, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(0.8f, .0f, .0f)) * 20f, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(0.8f, .0f, .0f)) * 20f, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward + new Vector3(1f, .0f, .0f)) * 20f, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward - new Vector3(1f, .0f, .0f)) * 20f, Color.red);
 #endif
-#endregion
+            #endregion
         }
 
-        if(approximatePosition(transform.position, destinationPosition))//the monster arrives in the last seen spot
+        if (approximatePosition(transform.position, destinationPosition))//the monster arrives in the last seen spot
         {
             //send the monster back to its initial position
             GetComponent<NavMeshAgent>().SetDestination(firstMonsterPosition);
@@ -128,5 +140,6 @@ public class Monster : MonoBehaviour
                 initialPosition = Vector3.zero;
             }
         }
+
     }
 }
