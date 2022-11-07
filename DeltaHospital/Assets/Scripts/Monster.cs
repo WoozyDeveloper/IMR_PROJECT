@@ -6,17 +6,25 @@ using UnityEngine.AI;
 public class Monster : MonoBehaviour
 {
     private GameObject monster;
+    private bool inSight;//true if the monster can see the player, false otherwise
+    [SerializeField] private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        monster = GetComponent<GameObject>();
+        inSight = true;//momentan true pana se face scriptul care l seteaza
     }
 
     // Update is called once per frame
     void Update()
     {
-        //follow the player
-        this.GetComponent<NavMeshAgent>().SetDestination(this.GetComponent<Transform>().position);
+       // if (inSight)
+       // {
+            //follow the player
+       //     Debug.Log("Ma duc!!!");
+            this.GetComponent<NavMeshAgent>().SetDestination(player.GetComponent<Transform>().position);
+       //     this.transform.LookAt(player.transform);
+        //}
+        
     }
 }
