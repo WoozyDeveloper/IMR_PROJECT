@@ -12,21 +12,25 @@ public class Torch : MonoBehaviour
     void Start()
     {
         Debug.Log("STARTING TORCH");
+        monster = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentObj = findNearestObj(objects);
-        if (currentObj.tag == "monster")
+        if (monster)
         {
-            Debug.Log("FREEZE MONSTER");
-            monster = currentObj.GetComponent<Monster>();
-            monster.setFreezeStatus(true);
-        }
-        else
-        {
-            monster.setFreezeStatus(false);
+            currentObj = findNearestObj(objects);
+            if (currentObj.tag == "monster")
+            {
+                Debug.Log("FREEZE MONSTER");
+                monster = currentObj.GetComponent<Monster>();
+                monster.setFreezeStatus(true);
+            }
+            else
+            {
+                monster.setFreezeStatus(false);
+            }
         }
     }
 
