@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Scene
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 131
+  controlID: 142
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: LightingWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -68,14 +68,14 @@ MonoBehaviour:
     y: 0
     width: 454
     height: 947
-  m_MinSize: {x: 276, y: 71}
+  m_MinSize: {x: 391, y: 411}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 15}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 15}
   - {fileID: 13}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,7 +151,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 79
+  controlID: 78
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 80
+  controlID: 79
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -375,22 +375,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Models/Horror Hospital Pack/Prefabs
+    - Assets/SkySeries Freebie
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Models/Horror Hospital Pack/Prefabs
+  - Assets/SkySeries Freebie
   m_LastFoldersGridSize: -1
   m_LastProjectPath: F:\Git\repos\IMR_PROJECT\DeltaHospital
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 199}
-    m_SelectedIDs: 9eb20100
-    m_LastClickedID: 111262
-    m_ExpandedIDs: 00000000cc6a0000146b0000166b0000a8740000d67400009a7600006a5901008a5901008e590100085a0100585a0100f25a01005a5b01005c5b0100ca6e0100d6770100688601008a880100b69a0100ba9a0100a0b20100a4b20100b2b2010000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 1655}
+    m_SelectedIDs: bc730000
+    m_LastClickedID: 29628
+    m_ExpandedIDs: 00000000046e00004e6e0000506e0000986e0000aa6e00001a700000bc7300001077000034770000e4780000847900008a7900008c790000a8790000ac790000fe7a0000787f00000a9800002a980000b4b4000038b500003cb5000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -418,7 +418,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000cc6a0000
+    m_ExpandedIDs: 00000000046e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -545,10 +545,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 144}
-      m_SelectedIDs: 
+      scrollPos: {x: 0, y: 2985}
+      m_SelectedIDs: bc730000
       m_LastClickedID: 0
-      m_ExpandedIDs: f804feff0a06feffa699feff7e33ffffda37fffff038ffffd066ffff30fbffffa6800100ec920100
+      m_ExpandedIDs: 327dffff8e7fffff509affffe2a8ffffa2bdffff36e6ffff30fbffffea640000e68c000088a80000fea9000030aa00006eab00007cab00009aab0000fead0000b8b00000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -564,7 +564,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 4}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -830,9 +830,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -296.46463, y: -262.27646, z: -469.13635}
+    m_Target: {x: 336.19528, y: 0.69759244, z: 25.058798}
     speed: 2
-    m_Value: {x: -296.46463, y: -262.27646, z: -469.13635}
+    m_Value: {x: 336.19528, y: 0.69759244, z: 25.058798}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -879,13 +879,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.076506585, y: 0.8886625, z: -0.15896456, w: -0.42375565}
+    m_Target: {x: 0.012226632, y: -0.36668122, z: 0.0066445307, w: 0.93052876}
     speed: 2
-    m_Value: {x: -0.07712578, y: 0.8882396, z: -0.16026448, w: -0.42355305}
+    m_Value: {x: 0.0122134, y: -0.3679786, z: 0.006661089, w: 0.9297301}
   m_Size:
-    m_Target: 390.8704
+    m_Target: 35.421432
     speed: 2
-    m_Value: 390.8704
+    m_Value: 33.896107
   m_Ortho:
     m_Target: 0
     speed: 2
