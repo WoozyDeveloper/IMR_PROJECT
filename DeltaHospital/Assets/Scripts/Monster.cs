@@ -16,6 +16,9 @@ public class Monster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 250;
+
+
         inSight = false;//momentan true pana se face scriptul care l seteaza
         initialPosition = Vector3.zero;
         firstMonsterPosition = transform.position;
