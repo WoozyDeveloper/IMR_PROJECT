@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:DeltaHospital/Assets/try.meta
 guid: 7a79e585bcc8b6146ab7ad055a91e28a
+========
+guid: 85f76a965e80c47e59bc69dad4b1fc16
+>>>>>>>> parent of 07843a69 (am facut ceva si pot si eu sa dau commit acm sper):DeltaHospital/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/Samples~/Tutorial/Asteroids/Scripts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

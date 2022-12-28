@@ -11,8 +11,6 @@ public class Torch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 250;
-
         Debug.Log("STARTING TORCH");
         monster = null;
     }

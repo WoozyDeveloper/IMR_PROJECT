@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:DeltaHospital/Assets/HDRPDefaultResources.meta
 guid: 158512059105f3f45bd33dbda0c29ff1
+========
+guid: 9129183a42052cd43b9c284d6dbd541e
+>>>>>>>> parent of 07843a69 (am facut ceva si pot si eu sa dau commit acm sper):DeltaHospital/Library/PackageCache/com.unity.ide.rider@3.0.15/Rider.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:DeltaHospital/Assets/Scenes/SampleScene_Profiles.meta
 guid: 38eb7b7d494a748469dc6aee867d5592
+========
+guid: 0c64d264596194ba0bff9b27c7928d57
+>>>>>>>> parent of 07843a69 (am facut ceva si pot si eu sa dau commit acm sper):DeltaHospital/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/Samples~/Tutorial/Asteroids/Prefabs.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

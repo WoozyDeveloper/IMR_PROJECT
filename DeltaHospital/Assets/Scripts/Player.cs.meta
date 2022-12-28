@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:DeltaHospital/Assets/Scripts/Player.cs.meta
 guid: 37901aaf2302fc94a8788337d6a1782b
+========
+guid: f9bd02a3a916be64c9b47b1305149423
+>>>>>>>> parent of 07843a69 (am facut ceva si pot si eu sa dau commit acm sper):DeltaHospital/Library/PackageCache/com.unity.ide.rider@3.0.15/Rider/Editor/EditorPluginInterop.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
