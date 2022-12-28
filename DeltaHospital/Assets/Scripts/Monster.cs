@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Monster : MonoBehaviour
 {
-    [SerializeField] private Vector3 gotoPosition;
-    private Vector3 initialPosition, destinationPosition, firstMonsterPosition;
+    [SerializeField] private GameObject gotoObject;
+    private Vector3 gotoPosition, initialPosition, destinationPosition, firstMonsterPosition;
     private bool inSight;//true if the monster can see the player, false otherwise
     [SerializeField] private GameObject player;
     private bool freezeStatus;
@@ -16,6 +16,8 @@ public class Monster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gotoPosition = gotoObject.transform.position;
+
         inSight = false;//momentan true pana se face scriptul care l seteaza
         initialPosition = Vector3.zero;
         firstMonsterPosition = transform.position;
@@ -43,18 +45,22 @@ public class Monster : MonoBehaviour
     {
         if (approximatePosition(transform.position, firstMonsterPosition))//check if we arrived at the initial position
         {
+            Debug.Log("goto");
+
             GetComponent<NavMeshAgent>().SetDestination(gotoPosition);
+            //GetComponent<NavMeshAgent>().destination = gotoPosition;
         }
         else if(approximatePosition(transform.position, gotoPosition))
         {
+            Debug.Log("back");
             GetComponent<NavMeshAgent>().SetDestination(firstMonsterPosition);
         }
     }
 
     private bool approximatePosition(Vector3 a, Vector3 b)
     {
-        Vector3Int x = new Vector3Int((int)a.x, (int)a.y, (int)a.z);
-        Vector3Int y = new Vector3Int((int)b.x, (int)b.y, (int)b.z);
+        Vector3Int x = new Vector3Int((int)a.x, 0, (int)a.z);
+        Vector3Int y = new Vector3Int((int)b.x, 0, (int)b.z);
         if (x == y)
             return true;
         return false;
@@ -80,7 +86,7 @@ public class Monster : MonoBehaviour
     {
         inSight = checkSight();
 
-
+        
 
         GetComponent<NavMeshAgent>().isStopped = getFreezeStatus();
         if (inSight)
@@ -110,6 +116,7 @@ public class Monster : MonoBehaviour
         }
         else
         {
+
             //GetComponent<NavMeshAgent>().SetDestination(this.GetComponent<Transform>().position);
             moveAround();
 
