@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Monster : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
     [SerializeField] private GameObject gotoObject;
     private Vector3 gotoPosition, initialPosition, destinationPosition, firstMonsterPosition;
     private bool inSight;//true if the monster can see the player, false otherwise
@@ -17,8 +18,8 @@ public class Monster : MonoBehaviour
     void Start()
     {
         gotoPosition = gotoObject.transform.position;
-
-        inSight = false;//momentan true pana se face scriptul care l seteaza
+        animator = GetComponent<Animator>();
+        inSight = false;
         initialPosition = Vector3.zero;
         firstMonsterPosition = transform.position;
 
@@ -45,6 +46,7 @@ public class Monster : MonoBehaviour
     {
         if (approximatePosition(transform.position, firstMonsterPosition))//check if we arrived at the initial position
         {
+            animator.Play("monsterRun");
             Debug.Log("goto");
 
             GetComponent<NavMeshAgent>().SetDestination(gotoPosition);
