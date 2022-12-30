@@ -9,6 +9,8 @@ TagManager:
   - monster
   - battery
   - key
+  - rightHand
+  - leftHand
   layers:
   - Default
   - TransparentFX

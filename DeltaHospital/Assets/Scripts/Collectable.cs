@@ -13,20 +13,19 @@ public class Collectable : MonoBehaviour
     {
         pickedUp = false;
 
+        leftHand = GameObject.FindWithTag("leftHand").GetComponent<Hand>();
+        rightHand = GameObject.FindWithTag("rightHand").GetComponent<Hand>();
+
         collectable = GetComponent<Rigidbody>();
         player = FindObjectOfType<Player>();
     }
 
 
     // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider collision)
     {
-        pickedUp = leftHand.isInHand() || rightHand.isInHand();
-        if(pickedUp)
-        {
-            player.addBattery();
-            Destroy(gameObject);
-        }
+        player.addBattery();
+        Destroy(gameObject);
     }
 
     

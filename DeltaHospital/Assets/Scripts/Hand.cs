@@ -21,7 +21,6 @@ public class Hand : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("INTRU");
         if(collision.gameObject.tag == "battery")
         {
             inHand = true;
