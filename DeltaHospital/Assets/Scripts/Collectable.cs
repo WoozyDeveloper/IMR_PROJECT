@@ -6,9 +6,13 @@ public class Collectable : MonoBehaviour
 {
     [SerializeField] private Player player;
     private Rigidbody collectable;
+    [SerializeField] private bool pickedUp;
+    [SerializeField] private Hand leftHand, rightHand;
     // Start is called before the first frame update
     void Start()
     {
+        pickedUp = false;
+
         collectable = GetComponent<Rigidbody>();
         player = FindObjectOfType<Player>();
     }
@@ -17,9 +21,13 @@ public class Collectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.transform.position.y - collectable.transform.position.y <= 2f)//TODO: nu i buna conditia e doar de proba
+        pickedUp = leftHand.isInHand() || rightHand.isInHand();
+        if(pickedUp)
         {
             player.addBattery();
+            Destroy(gameObject);
         }
     }
+
+    
 }

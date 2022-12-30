@@ -47,14 +47,14 @@ public class Monster : MonoBehaviour
         if (approximatePosition(transform.position, firstMonsterPosition))//check if we arrived at the initial position
         {
             animator.Play("monsterRun");
-            Debug.Log("goto");
+            //Debug.Log("goto");
 
             GetComponent<NavMeshAgent>().SetDestination(gotoPosition);
             //GetComponent<NavMeshAgent>().destination = gotoPosition;
         }
         else if(approximatePosition(transform.position, gotoPosition))
         {
-            Debug.Log("back");
+            //Debug.Log("back");
             GetComponent<NavMeshAgent>().SetDestination(firstMonsterPosition);
         }
     }

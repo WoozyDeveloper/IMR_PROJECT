@@ -7,6 +7,7 @@ TagManager:
   - wall
   - floor
   - monster
+  - battery
   layers:
   - Default
   - TransparentFX
