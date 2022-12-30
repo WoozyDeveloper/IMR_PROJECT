@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
+    public bool touchedTheGround;
     [SerializeField] private Player player;
     private Rigidbody collectable;
     [SerializeField] private bool pickedUp;
@@ -12,6 +13,7 @@ public class Collectable : MonoBehaviour
     void Start()
     {
         pickedUp = false;
+        touchedTheGround = false;
 
         leftHand = GameObject.FindWithTag("leftHand").GetComponent<Hand>();
         rightHand = GameObject.FindWithTag("rightHand").GetComponent<Hand>();
@@ -21,12 +23,21 @@ public class Collectable : MonoBehaviour
     }
 
 
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.tag == "ground")
+            touchedTheGround = true;    
+    }
+
     // Update is called once per frame
     private void OnTriggerEnter(Collider collision)
     {
-        player.addBattery();
-        Debug.Log("Destroy!!!");
-        Destroy(gameObject);
+        
+        if(touchedTheGround)
+        {
+            player.addBattery();
+            Debug.Log("Destroy!!!");
+            Destroy(gameObject);
+        }
     }
 
     

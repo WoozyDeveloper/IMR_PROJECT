@@ -37,9 +37,9 @@ public class Player : MonoBehaviour
         {
             batterySpawned = true;
             Vector3 handPosition = leftHand.transform.position;
-            Vector3 playerDirection = leftHand.transform.forward;
-            batteryObj.GetComponent<Collider>().enabled = false;
-            Instantiate(batteryObj,handPosition + playerDirection * 2, Quaternion.identity);
+            Vector3 handDirection = leftHand.transform.forward;
+            //batteryObj.GetComponent<Collider>().enabled = false;
+            Instantiate(batteryObj,handPosition + handDirection * 1.5f, Quaternion.identity);
             batteryNumber--;
         }
         else if(rightHand.checkHandRotation())
