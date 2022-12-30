@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     [SerializeField] private bool inHand;
+    private Vector3 rot;
 
     // Start is called before the first frame update
     void Start()
@@ -12,12 +13,25 @@ public class Hand : MonoBehaviour
         inHand = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        rot = transform.localRotation.eulerAngles;
     }
 
+    public Vector3 getPosition()
+    {
+        return gameObject.transform.position;
+    }
+
+    public bool checkHandRotation()
+    {
+        if(Mathf.Abs(rot.x) > 70f)
+        {
+            Debug.Log("Give a battery");
+            return true;
+        }
+        return false;
+    }
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -32,6 +46,7 @@ public class Hand : MonoBehaviour
         if (collision.gameObject.tag == "battery")
         {
             inHand = false;
+            
         }
     }
 

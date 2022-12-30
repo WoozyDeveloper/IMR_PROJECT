@@ -3879,7 +3879,6 @@ GameObject:
   - component: {fileID: 212795877}
   - component: {fileID: 212795882}
   - component: {fileID: 212795883}
-  - component: {fileID: 212795884}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: leftHand
@@ -4465,22 +4464,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inHand: 0
---- !u!54 &212795884
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212795875}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &218063821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7081,6 +7064,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batteryNumber: 0
   batteryText: {fileID: 1288007381}
+  batteryObj: {fileID: 7460427950601926931, guid: 23ce6ccc20c9d9b47b355813903b2a35, type: 3}
+  batterySpawned: 0
 --- !u!1001 &335213985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49546,6 +49531,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7730897565860283468, guid: 23ce6ccc20c9d9b47b355813903b2a35, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7730897565860283470, guid: 23ce6ccc20c9d9b47b355813903b2a35, type: 3}
       propertyPath: leftHand
       value: 
@@ -49554,6 +49543,10 @@ PrefabInstance:
       propertyPath: rightHand
       value: 
       objectReference: {fileID: 1791088839}
+    - target: {fileID: 7730897565860283471, guid: 23ce6ccc20c9d9b47b355813903b2a35, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7837128792747647913, guid: 23ce6ccc20c9d9b47b355813903b2a35, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -52282,6 +52275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: battery (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7730897565860283468, guid: 23ce6ccc20c9d9b47b355813903b2a35, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7837128792747647913, guid: 23ce6ccc20c9d9b47b355813903b2a35, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -52292,7 +52289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7837128792747647913, guid: 23ce6ccc20c9d9b47b355813903b2a35, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2019916
+      value: 4.72
       objectReference: {fileID: 0}
     - target: {fileID: 7837128792747647913, guid: 23ce6ccc20c9d9b47b355813903b2a35, type: 3}
       propertyPath: m_LocalPosition.z

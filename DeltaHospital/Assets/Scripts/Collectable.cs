@@ -25,6 +25,7 @@ public class Collectable : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         player.addBattery();
+        Debug.Log("Destroy!!!");
         Destroy(gameObject);
     }
 
