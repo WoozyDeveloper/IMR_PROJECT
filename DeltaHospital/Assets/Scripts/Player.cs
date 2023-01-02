@@ -10,10 +10,13 @@ public class Player : MonoBehaviour
     private Hand leftHand, rightHand;
     [SerializeField] private GameObject batteryObj;
     [SerializeField] private bool batterySpawned;
+    [SerializeField] private bool hasKey;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        hasKey = false;
         batterySpawned = false;
 
         leftHand = GameObject.FindWithTag("leftHand").GetComponent<Hand>();
@@ -22,6 +25,10 @@ public class Player : MonoBehaviour
         Application.targetFrameRate = 250;
         batteryNumber = 0;
         batteryText.text = batteryNumber.ToString();
+    }
+
+    public void foundKey(bool val){
+        hasKey = val;
     }
 
     public void addBattery()

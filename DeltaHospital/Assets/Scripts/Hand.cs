@@ -39,6 +39,12 @@ public class Hand : MonoBehaviour
         {
             inHand = true;
         }
+        if(collision.gameObject.tag == "key")
+        {
+            FindObjectOfType<Player>().foundKey(true);
+            Destroy(collision.gameObject);
+            Debug.Log("Gasit cheie");
+        }
     }
 
     private void OnTriggerExit(Collider collision)

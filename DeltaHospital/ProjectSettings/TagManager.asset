@@ -12,6 +12,7 @@ TagManager:
   - rightHand
   - leftHand
   - ground
+  - torch
   layers:
   - Default
   - TransparentFX
