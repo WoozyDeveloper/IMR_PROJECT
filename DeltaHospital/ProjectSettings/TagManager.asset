@@ -11,6 +11,7 @@ TagManager:
   - key
   - rightHand
   - leftHand
+  - ground
   layers:
   - Default
   - TransparentFX

@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 21853593}
   m_Layer: 0
   m_Name: concrete wall (23)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13127,7 +13127,7 @@ GameObject:
   - component: {fileID: 464314633}
   m_Layer: 0
   m_Name: concrete wall (22)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19448,7 +19448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711134617}
   m_LocalRotation: {x: -0, y: -0.07770795, z: -0, w: 0.99697626}
-  m_LocalPosition: {x: 0.37287796, y: -0.13740577, z: 0.6407345}
+  m_LocalPosition: {x: 0.074, y: -0.13740577, z: -0.224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28987,7 +28987,7 @@ GameObject:
   - component: {fileID: 1086842913}
   m_Layer: 0
   m_Name: concrete wall (21)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -36992,10 +36992,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482922737}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 0.23}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1484053680
 GameObject:
@@ -39164,7 +39164,7 @@ GameObject:
   - component: {fileID: 1591270229}
   m_Layer: 0
   m_Name: concrete wall (20)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -39711,7 +39711,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27014
+  m_Name: pb_Mesh27062
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -49545,7 +49545,7 @@ PrefabInstance:
       objectReference: {fileID: 1791088839}
     - target: {fileID: 7730897565860283471, guid: 23ce6ccc20c9d9b47b355813903b2a35, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7837128792747647913, guid: 23ce6ccc20c9d9b47b355813903b2a35, type: 3}
       propertyPath: m_RootOrder

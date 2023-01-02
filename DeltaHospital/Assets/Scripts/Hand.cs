@@ -25,7 +25,7 @@ public class Hand : MonoBehaviour
 
     public bool checkHandRotation()
     {
-        if(Mathf.Abs(rot.x) > 70f)
+        if(Mathf.Abs(rot.x) > 90f)
         {
             Debug.Log("Give a battery");
             return true;
@@ -46,7 +46,7 @@ public class Hand : MonoBehaviour
         if (collision.gameObject.tag == "battery")
         {
             inHand = false;
-            
+
         }
     }
 

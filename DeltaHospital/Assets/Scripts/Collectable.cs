@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    public bool touchedTheGround;
+    [SerializeField] private TorchLight torchLight;
+    [SerializeField] private bool touchedTheGround;
     [SerializeField] private Player player;
     private Rigidbody collectable;
     [SerializeField] private bool pickedUp;
     [SerializeField] private Hand leftHand, rightHand;
+
+    public bool isDropped()
+    {
+        return touchedTheGround;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +30,22 @@ public class Collectable : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.tag == "ground")
-            touchedTheGround = true;    
-    }
+    // private void OnCollisionEnter(Collision collision) {
+    //     if(collision.gameObject.tag == "ground")
+    //     {
+    //         touchedTheGround = true;    
+    //         Debug.Log("Il fac true pe touchtheground!!!");
+    //     }
+    // }
 
     // Update is called once per frame
     private void OnTriggerEnter(Collider collision)
     {
+        if(collision.gameObject.tag == "ground")
+        {
+            touchedTheGround = true;    
+            Debug.Log("Il fac true pe touchtheground!!!");
+        }
         
         if(touchedTheGround)
         {

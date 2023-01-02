@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private TextMeshProUGUI batteryText;
     private Hand leftHand, rightHand;
     [SerializeField] private GameObject batteryObj;
-    public bool batterySpawned;
+    [SerializeField] private bool batterySpawned;
 
     // Start is called before the first frame update
     void Start()
@@ -33,24 +33,30 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(leftHand.checkHandRotation() && !batterySpawned)
+        if(leftHand.checkHandRotation() && !batterySpawned && batteryNumber > 0)
         {
             batterySpawned = true;
             Vector3 handPosition = leftHand.transform.position;
             Vector3 handDirection = leftHand.transform.forward;
             //batteryObj.GetComponent<Collider>().enabled = false;
-            Instantiate(batteryObj,handPosition + handDirection * 1.5f, Quaternion.identity);
+            Instantiate(batteryObj, handPosition + handDirection, Quaternion.identity);
+            
             batteryNumber--;
+            batteryText.text = batteryNumber.ToString();
         }
-        else if(rightHand.checkHandRotation())
+        else if(rightHand.checkHandRotation() && !batterySpawned && batteryNumber > 0)
         {
-            Debug.Log("Give RIGHT");
-            // rightHand.GetComponent<Collider>().enabled = false;
-            // Instantiate(batteryObj, rightHand.getPosition(), Quaternion.identity);
-            // batteryNumber--;
+            batterySpawned = true;
+            Vector3 handPosition = rightHand.transform.position;
+            Vector3 handDirection = rightHand.transform.forward;
+            //batteryObj.GetComponent<Collider>().enabled = false;
+            Instantiate(batteryObj, handPosition + handDirection, Quaternion.identity);
+            
+            batteryNumber--;
+            batteryText.text = batteryNumber.ToString();
 
         }
-        if(!leftHand.checkHandRotation() && batterySpawned)
+        if((!rightHand.checkHandRotation() && batterySpawned && batteryObj.GetComponent<Collectable>().isDropped()))
         {
             batterySpawned = false;
 
