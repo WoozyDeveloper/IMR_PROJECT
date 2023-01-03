@@ -7,6 +7,12 @@ TagManager:
   - wall
   - floor
   - monster
+  - battery
+  - key
+  - rightHand
+  - leftHand
+  - ground
+  - torch
   layers:
   - Default
   - TransparentFX

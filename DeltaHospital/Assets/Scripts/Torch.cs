@@ -11,7 +11,7 @@ public class Torch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("STARTING TORCH");
+        //Debug.Log("STARTING TORCH");
         monster = null;
     }
 
@@ -23,7 +23,7 @@ public class Torch : MonoBehaviour
             currentObj = findNearestObj(objects);
             if (currentObj.tag == "monster")
             {
-                Debug.Log("FREEZE MONSTER");
+                //Debug.Log("FREEZE MONSTER");
                 monster = currentObj.GetComponent<Monster>();
                 monster.setFreezeStatus(true);
             }
@@ -60,7 +60,7 @@ public class Torch : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("ADAUG UNU");
+        //Debug.Log("ADAUG UNU");
         if(collider.gameObject.tag != "floor" && collider.gameObject.tag != "Untagged")
             objects.Add(collider.gameObject);
     }
